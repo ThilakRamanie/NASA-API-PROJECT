@@ -1,4 +1,7 @@
+const BASE_URL = "http://localhost:8000";
 async function httpGetPlanets() {
+  const response = await fetch(`${BASE_URL}/planets`);
+  return await response.json();
   // TODO: Once API is ready.
   // Load planets and return as JSON.
 }
@@ -18,9 +21,4 @@ async function httpAbortLaunch(id) {
   // Delete launch with given ID.
 }
 
-export {
-  httpGetPlanets,
-  httpGetLaunches,
-  httpSubmitLaunch,
-  httpAbortLaunch,
-};
+export { httpGetPlanets, httpGetLaunches, httpSubmitLaunch, httpAbortLaunch };
