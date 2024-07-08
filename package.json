@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ThilakRamanie/NASA-API-PROJECT/issues"
   },
-  "homepage": "https://github.com/ThilakRamanie/NASA-API-PROJECT#readme"
+  "homepage": "https://github.com/ThilakRamanie/NASA-API-PROJECT#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
