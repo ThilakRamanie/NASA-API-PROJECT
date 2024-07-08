@@ -7,7 +7,7 @@ const launch = {
   mission: "Kepler exploration M",
   rocket: "Explore IS1",
   launchDate: new Date("July 11 2028"),
-  destination: "kepler-442 b",
+  target: "kepler-442 b",
   customers: ["NASA", "ISRO"],
   upcoming: true,
   success: true,
@@ -21,7 +21,15 @@ function getAllLaunchesFromModels() {
 
 function addNewLaunch(launch) {
   latestFlightNumber++;
-  launches.set(latestFlightNumber, Object.assign());
+  launches.set(
+    latestFlightNumber,
+    Object.assign(launch, {
+      flightNumber: latestFlightNumber,
+      customers: ["NAST with ISRO"],
+      upcoming: true,
+      success: true,    
+    })
+  );
 }
 
-module.exports = { getAllLaunchesFromModels };
+module.exports = { getAllLaunchesFromModels, addNewLaunch };
