@@ -15,6 +15,10 @@ const launch = {
 
 launches.set(launch.flightNumber, launch);
 
+function existsLaunch(id) {
+  return launches.has(id);
+}
+
 function getAllLaunchesFromModels() {
   return Array.from(launches.values());
 }
@@ -27,9 +31,21 @@ function addNewLaunch(launch) {
       flightNumber: latestFlightNumber,
       customers: ["NAST with ISRO"],
       upcoming: true,
-      success: true,    
+      success: true,
     })
   );
 }
 
-module.exports = { getAllLaunchesFromModels, addNewLaunch };
+function abortLaunch(id) {
+  const aborted = launches.get(id);
+  aborted.upcoming = false;
+  aborted.success = false;
+  return aborted;
+}
+
+module.exports = {
+  getAllLaunchesFromModels,
+  addNewLaunch,
+  existsLaunch,
+  abortLaunch,
+};
